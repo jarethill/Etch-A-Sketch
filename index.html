@@ -24,10 +24,31 @@
                 container.appendChild(div);
             }
 
+            // Detect mouse down. Used for the conditional in mouseover event below
+            let mouseDown = 0;
+
+            container.addEventListener('mousedown', () => {
+                ++mouseDown;
+            });
+
+            container.addEventListener('mouseup', () => {
+                --mouseDown;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                mouseDown = 0;
+            });
+
             // Apply mouseover events for each div
             const allDivs = document.querySelectorAll('.grid-item');
             allDivs.forEach(div => {
-                div.addEventListener('mouseover', () => {
+                div.addEventListener('mouseover', e => {
+                    if (mouseDown) {
+                        div.classList.add('grid-item-hover');
+                    }
+                });
+
+                div.addEventListener('mousedown', () => {
                     div.classList.add('grid-item-hover');
                 });
             });
