@@ -11,17 +11,15 @@ body {
 }
 
 main {
-    margin-left: 36%;
-    margin-right: 38%;
-    margin-top: 15vh;
-
     #container {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
         user-select: none;
         display: grid;
-        width: 60vh;
-        height: 60vh;
+        width: 80vh;
+        height: 80vh;
         grid-template-columns: repeat(16, auto);
-        grid-template-rows: repeat(16, auto);
 
         .grid-item {
             width: 100%;
@@ -36,7 +34,9 @@ main {
     }
 
     h1 {
-        padding-bottom: 5%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 10px;
         font-size: 4rem;
         text-align: center;
         font-style: oblique;
