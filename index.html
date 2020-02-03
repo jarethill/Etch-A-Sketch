@@ -27,15 +27,15 @@
             // Detect mouse down. Used for the conditional in mouseover event below
             let mouseDown = 0;
 
-            container.addEventListener('mousedown', () => {
+            document.body.addEventListener('mousedown', () => {
                 ++mouseDown;
             });
 
-            container.addEventListener('mouseup', () => {
+            document.body.addEventListener('mouseup', () => {
                 --mouseDown;
             });
 
-            container.addEventListener('mouseleave', () => {
+            document.body.addEventListener('mouseleave', () => {
                 mouseDown = 0;
             });
 
