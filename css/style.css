@@ -15,6 +15,17 @@ body {
   display: none;
 }
 
+.rainbow-gradient {
+  background: transparent;
+  /* For browsers that do not support gradients */
+  /* For Safari 5.1 to 6.0 */
+  /* For Opera 11.1 to 12.0 */
+  /* For Firefox 3.6 to 15 */
+  background: -webkit-gradient(linear, left top, right top, from(orange), color-stop(yellow), color-stop(green), color-stop(cyan), color-stop(blue), to(violet));
+  background: linear-gradient(to right, orange, yellow, green, cyan, blue, violet);
+  /* Standard syntax (must be last) */
+}
+
 main {
   display: -ms-grid;
   display: grid;
@@ -93,7 +104,7 @@ main .instructions ul, main .options ul {
 }
 
 main .instructions li, main .options li {
-  word-break: break-all;
+  word-break: break-word;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
@@ -115,6 +126,7 @@ main .options button {
   border-width: 2px;
   background-color: transparent;
   color: white;
+  text-shadow: 1px 1px #000;
 }
 
 main .options button:focus {
