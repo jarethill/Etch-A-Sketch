@@ -7,14 +7,23 @@
 body {
     background-color: rgb(20, 20, 20);
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+#color-picker {
+    display: none;
 }
 
 main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    user-select: none;
+
     #container {
+        grid-column-start: 2;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 20px;
+        margin-top: 15px;
         user-select: none;
         display: grid;
         width: 80vh;
@@ -28,20 +37,82 @@ main {
             background-color: white;
         }
 
-        .grid-item-hover {
-            background-color: rgb(20, 20, 20);
+        .grid-item-noborder {
+            @extend .grid-item;
+            border: none;
+        }
+    }
+
+    .instructions {
+        box-shadow: 10px 5px #fff;
+        align-self: center;
+        user-select: text;
+        padding-top: 10px;
+        text-align: center;
+        grid-column-start: 1;
+        grid-row-start: 2;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px;
+        border: solid white 1px;
+        width: 80%;
+        height: 50%;
+
+        h2 {
+            font-size: 2em;
+            background: -webkit-linear-gradient(rgb(119, 181, 240), rgb(105, 235, 105));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 1px 1px #fff;
+        }
+
+        ul {
+            list-style: none;
+            padding-top: 5%;
+        }
+
+        li {
+            word-break: break-all;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            text-align: left;
+        }
+    }
+
+    .options {
+        @extend .instructions;
+        grid-column-start: 3;
+        grid-row-start: 2;
+
+        button {
+            font-family: Poppins;
+            width: 30%;
+            padding: 10px 10px 10px 10px;
+            border-radius: 3px;
+            border-width: 2px;
+            background-color: transparent;
+            color: white;
+
+            &:focus {
+                outline: none;
+            }
         }
     }
 
     h1 {
+        text-shadow: 1px 2px #fff;
+        user-select: text;
+        grid-column-start: 2;
         margin-left: auto;
         margin-right: auto;
-        padding-top: 10px;
-        font-size: 4rem;
+        width: 80%;
+        padding-top: 20px;
+        font-size: 5rem;
         text-align: center;
         font-style: oblique;
-        background: -webkit-linear-gradient(rgb(118, 235, 216), rgb(255, 207, 75));
-        font-family: 'Jim Nightshade', cursive;
+        background: -webkit-linear-gradient(rgb(119, 181, 240), rgb(105, 235, 105));
+        font-family: 'Italianno', cursive;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
