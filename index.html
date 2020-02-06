@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/style.css" />
         <link href="https://fonts.googleapis.com/css?family=Italianno&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet" />
-        <script src="external-scripts/jscolor.js"></script>
+        <script src="libraries/jscolor.js"></script>
         <title>Etch-A-Sketch</title>
     </head>
     <body>
@@ -15,7 +15,7 @@
             <h1>Etch-A-Sketch</h1>
             <div id="container"></div>
             <div class="slidecontainer">
-                <input type="range" min="16" max="48" value="32" class="slider" id="myRange" />
+                <input type="range" min="16" max="48" value="32" class="slider" />
             </div>
             <div class="instructions">
                 <h2>Instructions</h2>
@@ -59,6 +59,9 @@
                     </li>
                     <li>
                         <button id="toggle-border">Toggle Border</button>
+                    </li>
+                    <li>
+                        <button id="realistic-mode">Realistic: Off</button>
                     </li>
                     <li>
                         <button id="rainbow">Rainbow: Off</button>
