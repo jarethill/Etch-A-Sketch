@@ -8,6 +8,7 @@ body {
     background-color: rgb(20, 20, 20);
     color: white;
     font-family: Poppins, Arial, Helvetica, sans-serif;
+    height: 100vh;
 }
 
 #color-picker {
@@ -15,19 +16,43 @@ body {
 }
 
 .rainbow-gradient {
-    background: transparent; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left, orange, yellow, green, cyan, blue, violet); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
+    background: transparent;
+    background: -webkit-linear-gradient(
+        left,
+        rgb(240, 100, 90),
+        yellow,
+        rgb(72, 207, 72),
+        rgb(51, 182, 164),
+        rgb(80, 80, 228),
+        violet
+    ); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(
+        right,
+        rgb(240, 100, 90),
+        yellow,
+        rgb(72, 207, 72),
+        rgb(51, 182, 164),
+        rgb(80, 80, 228),
+        violet
+    ); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(
+        right,
+        rgb(240, 100, 90),
+        yellow,
+        rgb(72, 207, 72),
+        rgb(51, 182, 164),
+        rgb(80, 80, 228),
+        violet
+    ); /* For Firefox 3.6 to 15 */
     background: linear-gradient(
         to right,
-        orange,
+        rgb(240, 100, 90),
         yellow,
-        green,
-        cyan,
-        blue,
+        rgb(72, 207, 72),
+        rgb(51, 182, 164),
+        rgb(80, 80, 228),
         violet
-    ); /* Standard syntax (must be last) */
+    );
 }
 
 main {
@@ -44,7 +69,6 @@ main {
         display: grid;
         width: 80vh;
         height: 80vh;
-        grid-template-columns: repeat(16, auto);
 
         .grid-item {
             width: 100%;
@@ -69,10 +93,11 @@ main {
         grid-row-start: 2;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 15px;
+        margin-bottom: 40%;
         border: solid white 1px;
         width: 80%;
-        height: 50%;
+        height: 55%;
+        font-size: 1.75vh;
 
         h2 {
             font-size: 2em;
@@ -84,7 +109,7 @@ main {
 
         ul {
             list-style: none;
-            padding-top: 5%;
+            padding-top: 7%;
         }
 
         li {
@@ -100,20 +125,36 @@ main {
         @extend .instructions;
         grid-column-start: 3;
         grid-row-start: 2;
+        width: 60%;
+        height: 62%;
+        margin-top: 35%;
+        margin-bottom: unset;
 
         button {
             font-family: Poppins;
-            width: 30%;
+            width: 50%;
             padding: 10px 10px 10px 10px;
+            margin-left: 24%;
             border-radius: 3px;
             border-width: 2px;
             background-color: transparent;
             color: white;
             text-shadow: 1px 1px #000;
+            font-size: 1.75vh;
 
             &:focus {
                 outline: none;
             }
+
+            &:hover {
+                cursor: pointer;
+                font-size: 1.1rem;
+            }
+        }
+
+        h2 {
+            padding-bottom: 5%;
+            padding-right: 3.5%;
         }
     }
 
@@ -132,5 +173,59 @@ main {
         font-family: 'Italianno', cursive;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+    }
+
+    .slidecontainer {
+        width: 25%; /* Width of the outside container */
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        padding-top: 1.5vh;
+        justify-self: end;
+    }
+
+    /* The slider itself */
+    .slider {
+        -webkit-appearance: none; /* Override default CSS styles */
+        appearance: none;
+        width: 100%; /* Full-width */
+        height: 15px; /* Specified height */
+        background: rgb(20, 20, 20); /* Grey background */
+        border: solid #fff 2px;
+        outline: none; /* Remove outline */
+        opacity: 0.8; /* Set transparency (for mouse-over effects on hover) */
+        -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 1; /* Fully shown on mouse-over */
+        }
+
+        /* Mouse-over effects */
+
+        /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none; /* Override default look */
+            appearance: none;
+            width: 25px; /* Set a specific slider handle width */
+            height: 25px; /* Slider handle height */
+            border-style: solid;
+            border-color: rgb(20, 20, 20);
+            border-width: 1.5px;
+            border-radius: 50%;
+            background: #fff; /* Green background */
+            cursor: pointer; /* Cursor on hover */
+        }
+
+        &::-moz-range-thumb {
+            width: 25px; /* Set a specific slider handle width */
+            height: 25px; /* Slider handle height */
+            border-style: solid;
+            border-color: rgb(20, 20, 20);
+            border-width: 1.5px;
+            border-radius: 50%;
+            background: #fff; /* Green background */
+            cursor: pointer; /* Cursor on hover */
+        }
     }
 }

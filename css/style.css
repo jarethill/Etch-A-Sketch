@@ -9,6 +9,7 @@ body {
   background-color: #141414;
   color: white;
   font-family: Poppins, Arial, Helvetica, sans-serif;
+  height: 100vh;
 }
 
 #color-picker {
@@ -17,13 +18,11 @@ body {
 
 .rainbow-gradient {
   background: transparent;
-  /* For browsers that do not support gradients */
   /* For Safari 5.1 to 6.0 */
   /* For Opera 11.1 to 12.0 */
   /* For Firefox 3.6 to 15 */
-  background: -webkit-gradient(linear, left top, right top, from(orange), color-stop(yellow), color-stop(green), color-stop(cyan), color-stop(blue), to(violet));
-  background: linear-gradient(to right, orange, yellow, green, cyan, blue, violet);
-  /* Standard syntax (must be last) */
+  background: -webkit-gradient(linear, left top, right top, from(#f0645a), color-stop(yellow), color-stop(#48cf48), color-stop(#33b6a4), color-stop(#5050e4), to(violet));
+  background: linear-gradient(to right, #f0645a, yellow, #48cf48, #33b6a4, #5050e4, violet);
 }
 
 main {
@@ -35,6 +34,7 @@ main {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  /* The slider itself */
 }
 
 main #container {
@@ -51,8 +51,6 @@ main #container {
   display: grid;
   width: 80vh;
   height: 80vh;
-  -ms-grid-columns: (auto)[16];
-      grid-template-columns: repeat(16, auto);
 }
 
 main #container .grid-item, main #container .grid-item-noborder {
@@ -84,10 +82,11 @@ main .instructions, main .options {
       grid-row-start: 2;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 15px;
+  margin-bottom: 40%;
   border: solid white 1px;
   width: 80%;
-  height: 50%;
+  height: 55%;
+  font-size: 1.75vh;
 }
 
 main .instructions h2, main .options h2 {
@@ -100,7 +99,7 @@ main .instructions h2, main .options h2 {
 
 main .instructions ul, main .options ul {
   list-style: none;
-  padding-top: 5%;
+  padding-top: 7%;
 }
 
 main .instructions li, main .options li {
@@ -116,21 +115,37 @@ main .options {
       grid-column-start: 3;
   -ms-grid-row: 2;
       grid-row-start: 2;
+  width: 60%;
+  height: 62%;
+  margin-top: 35%;
+  margin-bottom: unset;
 }
 
 main .options button {
   font-family: Poppins;
-  width: 30%;
+  width: 50%;
   padding: 10px 10px 10px 10px;
+  margin-left: 24%;
   border-radius: 3px;
   border-width: 2px;
   background-color: transparent;
   color: white;
   text-shadow: 1px 1px #000;
+  font-size: 1.75vh;
 }
 
 main .options button:focus {
   outline: none;
+}
+
+main .options button:hover {
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+main .options h2 {
+  padding-bottom: 5%;
+  padding-right: 3.5%;
 }
 
 main h1 {
@@ -152,5 +167,80 @@ main h1 {
   font-family: 'Italianno', cursive;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+main .slidecontainer {
+  width: 25%;
+  /* Width of the outside container */
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 3;
+  -ms-grid-row: 3;
+      grid-row-start: 3;
+  padding-top: 1.5vh;
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+main .slider {
+  -webkit-appearance: none;
+  /* Override default CSS styles */
+  -moz-appearance: none;
+       appearance: none;
+  width: 100%;
+  /* Full-width */
+  height: 15px;
+  /* Specified height */
+  background: #141414;
+  /* Grey background */
+  border: solid #fff 2px;
+  outline: none;
+  /* Remove outline */
+  opacity: 0.8;
+  /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: 0.2s;
+  /* 0.2 seconds transition on hover */
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  /* Mouse-over effects */
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+}
+
+main .slider:hover {
+  opacity: 1;
+  /* Fully shown on mouse-over */
+}
+
+main .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* Override default look */
+  appearance: none;
+  width: 25px;
+  /* Set a specific slider handle width */
+  height: 25px;
+  /* Slider handle height */
+  border-style: solid;
+  border-color: #141414;
+  border-width: 1.5px;
+  border-radius: 50%;
+  background: #fff;
+  /* Green background */
+  cursor: pointer;
+  /* Cursor on hover */
+}
+
+main .slider::-moz-range-thumb {
+  width: 25px;
+  /* Set a specific slider handle width */
+  height: 25px;
+  /* Slider handle height */
+  border-style: solid;
+  border-color: #141414;
+  border-width: 1.5px;
+  border-radius: 50%;
+  background: #fff;
+  /* Green background */
+  cursor: pointer;
+  /* Cursor on hover */
 }
 /*# sourceMappingURL=style.css.map */
