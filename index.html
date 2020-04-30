@@ -12,7 +12,7 @@
     </head>
     <body>
         <main>
-            <h1>Etch-A-Sketch</h1>
+            <h1 style="user-select: none; white-space: nowrap;">Etch-A-Sketch</h1>
             <div id="container"></div>
             <div class="slidecontainer">
                 <input type="range" min="16" max="48" value="32" class="slider" />
@@ -43,8 +43,7 @@
                 <ul>
                     <li>
                         <button
-                            class="jscolor {width:101, padding:0, shadow:false,
-                            borderWidth:0, backgroundColor:'transparent', insetColor:'#000', position: 'right', valueElement:'color-picker'}"
+                            class="jscolor {width:101, padding:0, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000', position: 'right', valueElement:'color-picker'}"
                             id="color-picker-button"
                         >
                             Color Picker

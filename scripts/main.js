@@ -33,10 +33,10 @@ function deleteGrid() {
 // Apply event listeners to grid
 function applyEventListenersToGrid() {
     const allDivs = document.querySelectorAll('.grid-item');
-    allDivs.forEach(div => {
+    allDivs.forEach((div) => {
         let opacity = 1;
 
-        div.addEventListener('mouseover', e => {
+        div.addEventListener('mouseover', (e) => {
             if (mouseDown) {
                 if (rainbowOn) {
                     // Generate 3 random numbers to create an RGB color, converts to hex & applies style to div
@@ -63,7 +63,7 @@ function applyEventListenersToGrid() {
             }
         });
 
-        div.addEventListener('mousedown', e => {
+        div.addEventListener('mousedown', (e) => {
             if (e.button === 0) {
                 if (rainbowOn) {
                     // Generate 3 random numbers to create an RGB color, converts to hex & applies style to div
@@ -123,43 +123,61 @@ generateGrid(container);
 // Apply mouseover events for each div
 applyEventListenersToGrid();
 
-// Detect mouse down/up/leave. Used for the conditional in mouseover event below
+// Init mouse state variables
 let mouseDown = 0;
 let middleMouseDown = 0;
 let rightMouseDown = 0;
 
-document.body.addEventListener('mousedown', e => {
-    if (e.button === 0) {
-        ++mouseDown;
-    } else if (e.button === 1) {
-        ++middleMouseDown;
-    } else if (e.button === 2) {
-        ++rightMouseDown;
-    }
-});
-
-document.body.addEventListener('mouseup', e => {
-    if (e.button === 0) {
-        --mouseDown;
-    } else if (e.button === 1) {
-        --middleMouseDown;
-    } else if (e.button === 2) {
-        --rightMouseDown;
-    }
-});
-
-document.body.addEventListener('mouseleave', e => {
-    if (e.button === 0) {
-        mouseDown = 0;
-    } else if (e.button === 1) {
-        middleMouseDown = 0;
-    } else if (e.button === 2) {
-        rightMouseDown = 0;
-    }
+// Detect state of mouse down/up/leave. Used for the conditional in mouseover event below
+const MOUSE_STATES = ['mousedown', 'mouseup', 'mouseleave'];
+MOUSE_STATES.forEach((state) => {
+    document.body.addEventListener(state, (e) => {
+        switch (state) {
+            case 'mousedown':
+                switch (e.button) {
+                    case 0:
+                        ++mouseDown;
+                        break;
+                    case 1:
+                        ++middleMouseDown;
+                        break;
+                    case 2:
+                        ++rightMouseDown;
+                        break;
+                }
+                break;
+            case 'mouseup':
+                switch (e.button) {
+                    case 0:
+                        --mouseDown;
+                        break;
+                    case 1:
+                        --middleMouseDown;
+                        break;
+                    case 2:
+                        --rightMouseDown;
+                        break;
+                }
+                break;
+            case 'mouseleave':
+                switch (e.button) {
+                    case 0:
+                        mouseDown = 0;
+                        break;
+                    case 1:
+                        middleMouseDown = 0;
+                        break;
+                    case 2:
+                        rightMouseDown = 0;
+                        break;
+                }
+                break;
+        }
+    });
 });
 
 // Prevents right click menu inside container
-container.addEventListener('contextmenu', e => e.preventDefault());
+container.addEventListener('contextmenu', (e) => e.preventDefault());
 
 // Options
 
@@ -167,7 +185,7 @@ container.addEventListener('contextmenu', e => e.preventDefault());
 const clearGrid = document.querySelector('#clear-grid');
 clearGrid.addEventListener('click', () => {
     const allDivs = document.querySelectorAll('.grid-item');
-    allDivs.forEach(div => {
+    allDivs.forEach((div) => {
         div.removeAttribute('style');
     });
 });
@@ -189,7 +207,7 @@ let gridItemBorder = 1;
 const removeBorder = document.querySelector('#toggle-border');
 removeBorder.addEventListener('click', () => {
     const allDivs = document.querySelectorAll('.grid-item');
-    allDivs.forEach(div => {
+    allDivs.forEach((div) => {
         if (gridItemBorder === 1) {
             div.classList.add('grid-item-noborder');
         } else if (gridItemBorder === 0) {

@@ -9,7 +9,6 @@ body {
   background-color: #141414;
   color: white;
   font-family: Poppins, Arial, Helvetica, sans-serif;
-  height: 100vh;
 }
 
 #color-picker {
@@ -42,7 +41,7 @@ main #container {
       grid-column-start: 2;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 15px;
+  margin-top: 5px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -86,6 +85,8 @@ main .instructions, main .options {
   border: solid white 1px;
   width: 80%;
   height: 55%;
+  min-height: 60%;
+  max-height: 100%;
   font-size: 1.75vh;
 }
 
@@ -116,7 +117,7 @@ main .options {
   -ms-grid-row: 2;
       grid-row-start: 2;
   width: 60%;
-  height: 70%;
+  min-height: 80%;
   margin-top: 26%;
   margin-bottom: unset;
 }
